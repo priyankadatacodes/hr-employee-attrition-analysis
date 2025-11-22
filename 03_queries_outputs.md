@@ -8,10 +8,6 @@ SELECT
     ROUND(SUM(attrition='Yes')*100.0/COUNT(*),2) AS attrition_rate_pct
 FROM employee_attrition;
 
-| gender | total | exits | exit_rate_pct |
-| ------ | ----- | ----- | ------------- |
-| Male   | 882   | 150   | 17.01         |
-| Female | 588   | 87    | 14.80         |
 
 Output
 
