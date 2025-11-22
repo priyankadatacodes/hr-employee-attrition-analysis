@@ -1,7 +1,8 @@
-HR Employee Attrition Full SQL Analytics Project
-1. Executive Summary
+# **HR Employee Attrition Full SQL Analytics Project**
 
-1.1 Total Employee Headcount
+## **1. Executive Summary**
+
+## **1.1 Total Employee Headcount**
 
 SELECT COUNT(*) AS totalemployees FROM employeeattrition;
 
@@ -9,13 +10,12 @@ SELECT COUNT(*) AS totalemployees FROM employeeattrition;
 | --------------- |
 | 1470            |
 
-Insight:
-The company has a substantial employee base; attrition trends and interventions are relevant company-wide.
+**Insight:The company has a substantial employee base; attrition trends and interventions are relevant company-wide.**
 
-Recommendations & Actions:
-Apply all retention strategies across the organization.
+**Recommendations & Actions:Apply all retention strategies across the organization.**
+---
 
-1.2 Attrition & Retention Counts/Rates (Overall Business Impact)
+## **1.2 Attrition & Retention Counts/Rates (Overall Business Impact)**
 
 
 SELECT
@@ -24,38 +24,34 @@ SELECT
     ROUND(SUM(CASE WHEN attrition = 'Yes' THEN 1 ELSE 0 END) * 100.0 / COUNT(*),2) AS attritionratepct,
     ROUND(SUM(CASE WHEN attrition = 'No' THEN 1 ELSE 0 END) * 100.0 / COUNT(*),2) AS retentionratepct
 FROM employeeattrition;
+
 | Exited Employees | Retained Employees | Attrition Rate (%) | Retention Rate (%) |
 | ---------------- | ------------------ | ------------------ | ------------------ |
 | 416              | 1054               | 28.30              | 71.70              |
 
-Insight:
-Attrition is relatively high (industry benchmark <20%), risking talent and continuity.
+**Insight:Attrition is relatively high (industry benchmark <20%), risking talent and continuity.**
+**Recommendations & Actions:Conduct root cause analysis and launch engagement surveys.** **Leadership must own ambitious attrition-reduction KPI goals.**
+---
 
-Recommendations & Actions:
+## **2. Segment Profile Distributions**
 
-Conduct root cause analysis and launch engagement surveys.
-
-Leadership must own ambitious attrition-reduction KPI goals.
-
-2. Segment Profile Distributions
-2.1 By Business Travel Type
+## **2.1 By Business Travel Type**
 
 SELECT businesstravel, COUNT(*) AS total FROM employeeattrition GROUP BY businesstravel;
+
 | Business Travel  | Count |
 | ---------------- | ----- |
 | TravelRarely     | 1043  |
 | TravelFrequently | 277   |
 | Non-Travel       | 150   |
 
-Insight:
-Majority rarely travel. Impact of travel requirements needs further correlation with exits.
+**Insight:
+Majority rarely travel. Impact of travel requirements needs further correlation with exits.**
 
-Recommendations & Actions:
+**Recommendations & Actions:
+Consider fatigue-reducing measures for frequent travelers.**
 
-Consider fatigue-reducing measures for frequent travelers.
-
-2.2 By Department
-
+## **2.2 By Department**
 
 SELECT department, COUNT(*) AS total FROM employeeattrition GROUP BY department;
 | Department           | Count |
@@ -64,14 +60,13 @@ SELECT department, COUNT(*) AS total FROM employeeattrition GROUP BY department;
 | Research Development | 961   |
 | Human Resources      | 63    |
 
-Insight:
-R&D department is most populated, so mitigation here yields large impact.
+**Insight:
+R&D department is most populated, so mitigation here yields large impact.**
 
-Recommendations & Actions:
+**Recommendations & Actions:
+Tailor programs to department needs, resource balancing check.**
 
-Tailor programs to department needs, resource balancing check.
-
-2.3 By Education Field
+## **2.3 By Education Field**
 
 SELECT educationfield, COUNT(*) AS total FROM employeeattrition GROUP BY educationfield;
 | Education Field  | Count |
@@ -83,14 +78,13 @@ SELECT educationfield, COUNT(*) AS total FROM employeeattrition GROUP BY educati
 | Other            | 82    |
 | Human Resources  | 27    |
 
-Insight:
-Life Sciences and Medical dominate; diversity offers upskilling possibilities.
+**Insight:
+Life Sciences and Medical dominate; diversity offers upskilling possibilities.**
 
-Recommendations & Actions:
+**Recommendations & Actions:
+Offer training and specialized learning tracks.**
 
-Offer training and specialized learning tracks.
-
-2.4 By Gender
+## **2.4 By Gender**
 
 SELECT gender, COUNT(*) AS total FROM employeeattrition GROUP BY gender;
 | Gender | Count |
@@ -98,14 +92,13 @@ SELECT gender, COUNT(*) AS total FROM employeeattrition GROUP BY gender;
 | Female | 588   |
 | Male   | 882   |
 
-Insight:
-Gender representation is fairly balanced.
+**Insight:
+Gender representation is fairly balanced.**
 
-Recommendations & Actions:
+**Recommendations & Actions:
+Strengthen diversity & inclusion initiatives.**
 
-Strengthen diversity & inclusion initiatives.
-
-2.5 By Job Role
+## **2.5 By Job Role**
 
 SELECT jobrole, COUNT(*) AS total FROM employeeattrition GROUP BY jobrole;
 | Job Role               | Count |
@@ -120,14 +113,13 @@ SELECT jobrole, COUNT(*) AS total FROM employeeattrition GROUP BY jobrole;
 | Research Director      | 80    |
 | Human Resources        | 52    |
 
-Insight:
-Sales Executives, Research Scientists, and Lab Technicians form majority cores.
+**Insight:
+Sales Executives, Research Scientists, and Lab Technicians form majority cores.**
 
-Recommendations & Actions:
+**Recommendations & Actions:
+Direct career growth and retention towards top roles.**
 
-Direct career growth and retention towards top roles.
-
-2.6 By Marital Status
+## **2.6 By Marital Status**
 
 SELECT maritalstatus, COUNT(*) AS total FROM employeeattrition GROUP BY maritalstatus;
 | Marital Status | Count |
@@ -136,39 +128,39 @@ SELECT maritalstatus, COUNT(*) AS total FROM employeeattrition GROUP BY maritals
 | Single         | 470   |
 | Divorced       | 327   |
 
-Insight:
-Single and married employees together make up the majority.
+**Insight:
+Single and married employees together make up the majority.**
 
-Recommendations & Actions:
+**Recommendations & Actions:
+Target initiatives toward single employees’ wellness and support.**
 
-Target initiatives toward single employees’ wellness and support.
-
-3. Attrition KPIs by Business Segment
-3.1 Attrition Rate by Department
+## **3. Attrition KPIs by Business Segment**
+## **3.1 Attrition Rate by Department**
 
 SELECT department, COUNT(*) AS total,
        SUM(CASE WHEN attrition = 'Yes' THEN 1 ELSE 0 END) AS exits,
        ROUND(SUM(CASE WHEN attrition = 'Yes' THEN 1 ELSE 0 END) * 100.0 / COUNT(*),2) AS exitratepct
 FROM employeeattrition GROUP BY department ORDER BY exitratepct DESC;
+
 | Department      | Total | Exits | Exit Rate (%) |
 | --------------- | ----- | ----- | ------------- |
 | Sales           | 446   | 128   | 28.70         |
 | R&D             | 961   | 271   | 28.20         |
 | Human Resources | 63    | 17    | 26.98         |
 
-Insight:
-Sales and R&D have highest attrition; both departments need targeted intervention.
+**Insight:
+Sales and R&D have highest attrition; both departments need targeted intervention.**
 
-Recommendations & Actions:
+**Recommendations & Actions:
+Launch Sales incentives, R&D mentoring, and explicit HR career plans.**
 
-Launch Sales incentives, R&D mentoring, and explicit HR career plans.
-
-3.2 Top 5 High-Risk Job Roles
+## **3.2 Top 5 High-Risk Job Roles**
 
 SELECT jobrole, COUNT(*) AS total,
        SUM(CASE WHEN attrition='Yes' THEN 1 ELSE 0 END) AS exits,
        ROUND(SUM(CASE WHEN attrition='Yes' THEN 1 ELSE 0 END)*100.0/COUNT(*),2) AS exitratepct
 FROM employeeattrition GROUP BY jobrole ORDER BY exitratepct DESC LIMIT 5;
+
 | Job Role              | Total | Exits | Exit Rate (%) |
 | --------------------- | ----- | ----- | ------------- |
 | Sales Representative  | 83    | 33    | 39.76         |
