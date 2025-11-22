@@ -2,11 +2,13 @@
 1. OVERALL ATTRITION METRICS
 -----------------------------------------------
 1.1 Total Attrition & Rate
+
 SELECT 
     COUNT(*) AS total_employees,
     SUM(attrition='Yes') AS total_exits,
     ROUND(SUM(attrition='Yes')*100.0/COUNT(*),2) AS attrition_rate_pct
 FROM employee_attrition;
+
 ### **Output**
 
 | total_employees | total_exits | attrition_rate_pct |
@@ -14,8 +16,8 @@ FROM employee_attrition;
 | 1470            | 237         | 16.12%             |
 
 
-Insight:
-Company-wide attrition is 16.1%, which is moderate but signals potential risk areas.
+**Insight:
+Company-wide attrition is 16.1%, which is moderate but signals potential risk areas.**
 
 -----------------------------------------------
 2. DEMOGRAPHIC ATTRITION ANALYSIS
