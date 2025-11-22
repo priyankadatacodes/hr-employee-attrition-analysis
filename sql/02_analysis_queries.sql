@@ -7,7 +7,7 @@
 -- 1.1 Total employee headcount
 SELECT COUNT(*) AS total_employees FROM employee_attrition;
 
--- 1.2 Attrition and retention counts/rates (overall business impact summary)
+-- 1.2 Attrition and retention counts/rates 
 SELECT 
     SUM(attrition='Yes') AS exited_employees,
     SUM(attrition='No')  AS retained_employees,
@@ -17,16 +17,16 @@ FROM employee_attrition;
 
 -- ============================== 2. SEGMENT PROFILE DISTRIBUTIONS ==============================
 
--- 2.1 Employee count by business travel type (travel assignment risk)
+-- 2.1 Employee count by business travel type 
 SELECT businesstravel, COUNT(*) AS total FROM employee_attrition GROUP BY businesstravel;
 
--- 2.2 By department (org structure risk)
+-- 2.2 By department 
 SELECT department, COUNT(*) AS total FROM employee_attrition GROUP BY department;
 
--- 2.3 By education field (educational diversity, upskilling planning)
+-- 2.3 By education field 
 SELECT educationfield, COUNT(*) AS total FROM employee_attrition GROUP BY educationfield;
 
--- 2.4 By gender, job role, marital status, overtime (baseline breakdowns)
+-- 2.4 By gender, job role, marital status, overtime 
 SELECT gender, COUNT(*) AS total FROM employee_attrition GROUP BY gender;
 SELECT jobrole, COUNT(*) AS total FROM employee_attrition GROUP BY jobrole;
 SELECT maritalstatus, COUNT(*) AS total FROM employee_attrition GROUP BY maritalstatus;
@@ -34,14 +34,14 @@ SELECT overtime, COUNT(*) AS total FROM employee_attrition GROUP BY overtime;
 
 -- ============================== 3. ATTRITION KPIs BY BUSINESS SEGMENT ==============================
 
--- 3.1 Attrition rate by department (HR risk targeting)
+-- 3.1 Attrition rate by department 
 SELECT department, COUNT(*) AS total, SUM(attrition='Yes') AS exits,
     ROUND(SUM(attrition='Yes')*100.0/COUNT(*),2) AS exit_rate_pct
 FROM employee_attrition
 GROUP BY department
 ORDER BY exit_rate_pct DESC;
 
--- 3.2 Top 5 high-risk job roles (targeted intervention priority)
+-- 3.2 Top 5 high-risk job roles 
 SELECT jobrole, COUNT(*) AS total, SUM(attrition='Yes') AS exits,
     ROUND(SUM(attrition='Yes')*100.0/COUNT(*),2) AS exit_rate_pct
 FROM employee_attrition
@@ -49,14 +49,14 @@ GROUP BY jobrole
 ORDER BY exit_rate_pct DESC
 LIMIT 5;
 
--- 3.3 Attrition by marital status (risk and wellness targeting)
+-- 3.3 Attrition by marital status 
 SELECT maritalstatus, COUNT(*) AS total, SUM(attrition='Yes') AS exits,
     ROUND(SUM(attrition='Yes')*100.0/COUNT(*),2) AS exit_rate_pct
 FROM employee_attrition
 GROUP BY maritalstatus
 ORDER BY exit_rate_pct DESC;
 
--- 3.4 Attrition by overtime and gender (workload, D&I risk)
+-- 3.4 Attrition by overtime and gender 
 SELECT overtime, COUNT(*) AS total, SUM(attrition='Yes') AS exits,
     ROUND(SUM(attrition='Yes')*100.0/COUNT(*),2) AS exit_rate_pct
 FROM employee_attrition
@@ -69,7 +69,7 @@ GROUP BY gender;
 
 -- ============================== 4. KPI MEANS (NUMERIC, SATISFACTION, TENURE) ==============================
 
--- 4.1 Means for age, income, tenure, satisfaction by attrition (data for dashboards)
+-- 4.1 Means for age, income, tenure, satisfaction by attrition 
 SELECT attrition,
     AVG(age) AS avg_age,
     AVG(monthlyincome) AS avg_income,
@@ -88,21 +88,21 @@ SELECT COUNT(*) AS total_low_income, SUM(attrition='Yes') AS exits,
     ROUND(SUM(attrition='Yes')*100.0/COUNT(*),2) AS exit_rate_pct
 FROM employee_attrition WHERE monthlyincome < 3000;
 
--- 5.2 Overtime + department (matrix risk analysis)
+-- 5.2 Overtime + department 
 SELECT department, overtime, COUNT(*) AS total, SUM(attrition='Yes') AS exits,
     ROUND(SUM(attrition='Yes')*100.0/COUNT(*),2) AS exit_rate_pct
 FROM employee_attrition
 GROUP BY department, overtime
 ORDER BY exit_rate_pct DESC;
 
--- 5.3 Job Role + Overtime (matrix view)
+-- 5.3 Job Role + Overtime 
 SELECT jobrole, overtime, COUNT(*) AS total, SUM(attrition='Yes') AS exits,
     ROUND(SUM(attrition='Yes')*100.0/COUNT(*),2) AS exit_rate_pct
 FROM employee_attrition
 GROUP BY jobrole, overtime
 ORDER BY exit_rate_pct DESC;
 
--- 5.4 Promotion bands (years since last promotion)
+-- 5.4 Promotion bands 
 SELECT CASE
     WHEN yearssincelastpromotion = 0 THEN 'Promoted_this_year'
     WHEN yearssincelastpromotion <= 2 THEN '0-2_years'
@@ -115,7 +115,7 @@ FROM employee_attrition
 GROUP BY promotion_band
 ORDER BY exit_rate_pct DESC;
 
--- 5.5 Age bands (young/mid/senior)
+-- 5.5 Age bands 
 SELECT CASE
     WHEN age < 30 THEN 'Young'
     WHEN age <= 45 THEN 'Mid'
@@ -126,7 +126,7 @@ SELECT CASE
 FROM employee_attrition
 GROUP BY age_band;
 
--- 5.6 Tenure bands (years at company)
+-- 5.6 Tenure bands
 SELECT CASE
     WHEN yearsatcompany < 3 THEN '0-2'
     WHEN yearsatcompany <= 6 THEN '3-6'
@@ -157,12 +157,12 @@ ORDER BY department, gender;
 
 -- ============================== 7. EDA/VALIDATION & UNIQUE COUNTS ==============================
 
--- Unique values for categorical columns (for feature engineering checks)
+-- Unique values for categorical columns 
 SELECT COUNT(DISTINCT jobrole) AS n_jobroles, COUNT(DISTINCT department) AS n_departments,
        COUNT(DISTINCT businesstravel) AS n_travelmodes, COUNT(DISTINCT educationfield) AS n_educfields
 FROM employee_attrition;
 
--- Min/Max/Avg for numerics (for EDA/visualizations)
+-- Min/Max/Avg for numerics 
 SELECT MIN(monthlyincome) AS min_income, MAX(monthlyincome) AS max_income, AVG(monthlyincome) AS avg_income,
     MIN(age) AS min_age, MAX(age) AS max_age, AVG(age) AS avg_age,
     MIN(yearsatcompany) AS min_tenure, MAX(yearsatcompany) AS max_tenure, AVG(yearsatcompany) AS avg_tenure
