@@ -1,4 +1,4 @@
-# Employee Attrition Analysis & Prediction
+# **Employee Attrition Analysis & Prediction**
 
 ## Project Overview
 A complete, end-to-end Data Analyst portfolio project tackling HR employee attrition. This solution combines MySQL analytics, Python EDA, predictive modeling, and Power BI dashboards to identify causes, predict risk, and empower data-driven HR strategy.
@@ -49,4 +49,4 @@ A complete, end-to-end Data Analyst portfolio project tackling HR employee attri
 
 ---
 
-Project by [Your Name] — aspiring Data Analyst skilled in SQL, Python, business intelligence, and machine learning.
+Project by [PRIYANKA_LAKRA] — aspiring Data Analyst skilled in SQL, Python, business intelligence, and machine learning.
