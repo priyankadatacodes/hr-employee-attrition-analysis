@@ -23,6 +23,7 @@ Company-wide attrition is 16.1%, which is moderate but signals potential risk ar
 2. DEMOGRAPHIC ATTRITION ANALYSIS
 -----------------------------------------------
 2.1 Attrition by Age Group
+
 SELECT 
     CASE 
         WHEN age < 25 THEN '18-24'
@@ -50,13 +51,14 @@ ORDER BY exit_rate_pct DESC;
 
 
 
-Insight:
-Attrition is highest among young employees (18–30) — indicating instability or better opportunities elsewhere.
+**Insight:
+Attrition is highest among young employees (18–30) — indicating instability or better opportunities elsewhere.**
 
 -----------------------------------------------
 3. ATTRITION KPIs BY BUSINESS SEGMENT
 -----------------------------------------------
 3.1 Department-wise Attrition
+
 SELECT department, COUNT(*) AS total, 
     SUM(attrition='Yes') AS exits,
     ROUND(SUM(attrition='Yes')*100.0/COUNT(*),2) AS exit_rate_pct
@@ -74,10 +76,11 @@ ORDER BY exit_rate_pct DESC;
 | Research & Development | 961   | 133    | 13.84%         |
 
 
-Insight:
-Sales has the highest attrition — expected due to pressure, travel, and KPIs.
+**Insight:
+Sales has the highest attrition — expected due to pressure, travel, and KPIs.**
 
 3.2 Top 5 High-Risk Job Roles
+
 SELECT jobrole, COUNT(*) AS total, 
        SUM(attrition='Yes') AS exits,
        ROUND(SUM(attrition='Yes')*100.0/COUNT(*),2) AS exit_rate_pct
@@ -97,10 +100,11 @@ LIMIT 5;
 | Research Scientist    | 292   | 47     | 16.10%         |
 
 
-Insight:
-Sales Representatives attrition ~40% → needs urgent intervention.
+**Insight:
+Sales Representatives attrition ~40% → needs urgent intervention.**
 
 3.3 Attrition by Marital Status
+
 SELECT maritalstatus, COUNT(*) AS total, 
     SUM(attrition='Yes') AS exits,
     ROUND(SUM(attrition='Yes')*100.0/COUNT(*),2) AS exit_rate_pct
@@ -118,10 +122,11 @@ ORDER BY exit_rate_pct DESC;
 
 
 
-Insight:
-Singles are more likely to leave — younger, mobile, early-career profiles.
+**Insight:
+Singles are more likely to leave — younger, mobile, early-career profiles.**
 
 3.4 Attrition by Overtime
+
 SELECT overtime, COUNT(*) AS total,
     SUM(attrition='Yes') AS exits,
     ROUND(SUM(attrition='Yes')*100.0/COUNT(*),2) AS exit_rate_pct
@@ -136,10 +141,11 @@ GROUP BY overtime;
 | No       | 1054  | 110    | 10.44%         |
 
 
-Insight:
-Overtime employees have 3× higher exit rate → confirms workload stress.
+**Insight:
+Overtime employees have 3× higher exit rate → confirms workload stress.**
 
 3.5 Attrition by Gender
+
 SELECT gender, COUNT(*) AS total, 
     SUM(attrition='Yes') AS exits,
     ROUND(SUM(attrition='Yes')*100.0/COUNT(*),2) AS exit_rate_pct
@@ -155,13 +161,14 @@ GROUP BY gender;
 
 
 
-Insight:
-Gender is not a major attrition driver.
+**Insight:
+Gender is not a major attrition driver.**
 
 ------------------------------------------------
 4. MULTI-DIMENSIONAL MATRIX ANALYSIS
 ------------------------------------------------
 4.1 Business Travel × Department
+
 SELECT businesstravel, department, COUNT(*) AS total,
     SUM(attrition='Yes') AS exits,
     ROUND(SUM(attrition='Yes')*100.0/COUNT(*),2) AS exit_rate_pct
@@ -179,10 +186,11 @@ ORDER BY exit_rate_pct DESC;
 | Travel_Frequently    | R&D         | 131   | 22     | 16.79%         |
 | Non-Travel           | Sales       | 45    | 4      | 8.89%          |
 
-Insight:
-Sales + Frequent Travel = highest-risk segment.
+**Insight:
+Sales + Frequent Travel = highest-risk segment.**
 
 4.2 Department × Gender
+
 SELECT department, gender, COUNT(*) AS total,
     SUM(attrition='Yes') AS exits,
     ROUND(SUM(attrition='Yes')*100.0/COUNT(*),2) AS exit_rate_pct
@@ -203,13 +211,14 @@ ORDER BY department, gender;
 
 
 
-Insight:
-HR females show higher attrition → workplace factors or fit.
+**Insight:
+HR females show higher attrition → workplace factors or fit.**
 
 ------------------------------------------------
 5. EDA / UNIQUE VALUE CHECKS
 ------------------------------------------------
 5.1 Unique Counts
+
 SELECT COUNT(DISTINCT jobrole) AS n_jobroles,
        COUNT(DISTINCT department) AS n_departments,
        COUNT(DISTINCT businesstravel) AS n_travelmodes,
@@ -224,6 +233,7 @@ FROM employee_attrition;
 
 
 5.2 Range Summary (Min/Avg/Max)
+
 SELECT 
     MIN(monthlyincome) AS min_income, MAX(monthlyincome) AS max_income, AVG(monthlyincome) AS avg_income,
     MIN(age) AS min_age, MAX(age) AS max_age, AVG(age) AS avg_age,
@@ -238,6 +248,7 @@ FROM employee_attrition;
 
 
 5.3 High-Tenure Attrition (>10 years)
+
 SELECT COUNT(*) AS total_high_tenure, 
        SUM(attrition='Yes') AS exited_high_tenure,
        ROUND(SUM(attrition='Yes')*100.0/COUNT(*),2) AS exit_rate_pct
@@ -252,13 +263,14 @@ WHERE yearsatcompany > 10;
 | 285               | 16                  | 5.61%          |
 
 
-Insight:
-Long-tenure employees are loyal (5.6% attrition).
+**Insight:
+Long-tenure employees are loyal (5.6% attrition).**
 
 ------------------------------------------------
 6. PERFORMANCE & SATISFACTION ANALYSIS
 ------------------------------------------------
 6.1 Performance Rating × Attrition
+
 SELECT performancerating, attrition, COUNT(*) AS emp_count
 FROM employee_attrition
 GROUP BY performancerating, attrition
@@ -274,10 +286,11 @@ ORDER BY performancerating, attrition;
 | 4      | Yes       | 37        |
 
 
-Insight:
-Even high performers are leaving → lack of recognition or growth.
+**Insight:
+Even high performers are leaving → lack of recognition or growth.**
 
 6.2 Environmental Satisfaction
+
 SELECT attrition, AVG(environmentsatisfaction) AS avg_envsat
 FROM employee_attrition GROUP BY attrition;
 
@@ -289,10 +302,11 @@ FROM employee_attrition GROUP BY attrition;
 | No        | 2.77       |
 
 
-Insight:
-Departing employees report poorer environment satisfaction.
+**Insight:
+Departing employees report poorer environment satisfaction.**
 
 6.3 Relationship Satisfaction
+
 SELECT attrition, AVG(relationshipsatisfaction) AS avg_relsat
 FROM employee_attrition GROUP BY attrition;
 
@@ -305,6 +319,7 @@ FROM employee_attrition GROUP BY attrition;
 
 
 6.4 Work–Life Balance
+
 SELECT attrition, AVG(worklifebalance) AS avg_worklifebalance
 FROM employee_attrition GROUP BY attrition;
 
@@ -317,8 +332,8 @@ FROM employee_attrition GROUP BY attrition;
 | No        | 2.78                 |
 
 
-Insight:
-Low work-life balance strongly tied to attrition.
+**Insight:
+Low work-life balance strongly tied to attrition.**
 
 ------------------------------------------------
 7. DAILYRATE / MONTHLYRATE / TRAINING EDA
@@ -338,8 +353,8 @@ GROUP BY attrition;
 | No        | 812           | 102            | 1499           | 14265            | 2094             | 26997            | 2.83         |
 
 
-Insight:
-Training is slightly higher for retained employees → development matters.
+**Insight:
+Training is slightly higher for retained employees -development matters.**
 
 -----------------------------------------------
 END OF THE PROJECT-----------------------------------------------
