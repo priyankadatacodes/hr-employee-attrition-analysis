@@ -6,7 +6,11 @@
 
 -- 1.1 Total employee headcount
 SELECT COUNT(*) AS total_employees FROM employee_attrition;
-
+**Output:**
+| total_employees |
+|-----------------|
+| 1470            |
+    
 -- 1.2 Attrition and retention counts/rates (overall business impact summary)
 SELECT 
     SUM(attrition='Yes') AS exited_employees,
@@ -14,24 +18,97 @@ SELECT
     ROUND(SUM(attrition='Yes')*100.0/COUNT(*),2) AS attrition_rate_pct,
     ROUND(SUM(attrition='No')*100.0/COUNT(*),2)  AS retention_rate_pct
 FROM employee_attrition;
+**Output:**
+| exited_employees | retained_employees | attrition_rate_pct | retention_rate_pct |
+|------------------|--------------------|--------------------|---------------------|
+| 237              | 1233               | 16.12              | 83.88               |
 
+**Business Insight:**  
+16.12% attrition rate is moderate but indicates room for targeted retention strategies, especially in high-risk segments.
 -- ============================== 2. SEGMENT PROFILE DISTRIBUTIONS ==============================
 
 -- 2.1 Employee count by business travel type (travel assignment risk)
 SELECT businesstravel, COUNT(*) AS total FROM employee_attrition GROUP BY businesstravel;
+**Output:**
+| businesstravel      | total |
+|---------------------|-------|
+| Travel_Rarely       | 1043  |
+| Travel_Frequently   | 277   |
+| Non-Travel          | 150   |
 
 -- 2.2 By department (org structure risk)
 SELECT department, COUNT(*) AS total FROM employee_attrition GROUP BY department;
+**Output:**
+| department                  | total |
+|-----------------------------|-------|
+| Research & Development      | 961   |
+| Sales                       | 446   |
+| Human Resources             | 63    |
+
+**Business Insight:**  
+R&D is the largest department (65.4% of workforce) and should be prioritized for retention efforts given its size and business criticality.
 
 -- 2.3 By education field (educational diversity, upskilling planning)
 SELECT educationfield, COUNT(*) AS total FROM employee_attrition GROUP BY educationfield;
-
+**Output:**
+| educationfield      | total |
+|---------------------|-------|
+| Life Sciences       | 606   |
+| Medical             | 464   |
+| Marketing           | 159   |
+| Technical Degree    | 132   |
+| Other               | 82    |
+| Human Resources     | 27    |
+    
 -- 2.4 By gender, job role, marital status, overtime (baseline breakdowns)
 SELECT gender, COUNT(*) AS total FROM employee_attrition GROUP BY gender;
-SELECT jobrole, COUNT(*) AS total FROM employee_attrition GROUP BY jobrole;
-SELECT maritalstatus, COUNT(*) AS total FROM employee_attrition GROUP BY maritalstatus;
-SELECT overtime, COUNT(*) AS total FROM employee_attrition GROUP BY overtime;
+**Output:**
+| gender | total |
+|--------|-------|
+| Male   | 882   |
+| Female | 588   |
 
+**Business Insight:**  
+Male employees represent 60% of the workforce, while female employees represent 40%.
+    
+SELECT jobrole, COUNT(*) AS total FROM employee_attrition GROUP BY jobrole;
+**Output:**
+| jobrole                    | total |
+|----------------------------|-------|
+| Sales Executive            | 326   |
+| Research Scientist         | 292   |
+| Laboratory Technician      | 259   |
+| Manufacturing Director     | 145   |
+| Healthcare Representative  | 131   |
+| Manager                    | 102   |
+| Sales Representative       | 83    |
+| Research Director          | 80    |
+| Human Resources            | 52    |
+
+**Business Insight:**  
+Sales Executives, Research Scientists, and Laboratory Technicians comprise the top 3 roles, accounting for nearly 60% of total headcount.
+
+SELECT maritalstatus, COUNT(*) AS total FROM employee_attrition GROUP BY maritalstatus;
+**Output:**
+| maritalstatus | total |
+|---------------|-------|
+| Married       | 673   |
+| Single        | 470   |
+| Divorced      | 327   |
+    
+SELECT overtime, COUNT(*) AS total FROM employee_attrition GROUP BY overtime;
+**Output:**
+| overtime | total |
+|----------|-------|
+| No       | 1054  |
+| Yes      | 416   |
+
+**Business Insight:**  
+28.3% of employees work overtime, a segment that requires close monitoring for burnout and attrition risk.
+    
+
+
+    
 -- ============================== 3. ATTRITION KPIs BY BUSINESS SEGMENT ==============================
 
 -- 3.1 Attrition rate by department (HR risk targeting)
@@ -40,7 +117,16 @@ SELECT department, COUNT(*) AS total, SUM(attrition='Yes') AS exits,
 FROM employee_attrition
 GROUP BY department
 ORDER BY exit_rate_pct DESC;
+**Output:**
+| department                  | total | exits | exit_rate_pct |
+|-----------------------------|-------|-------|---------------|
+| Sales                       | 446   | 92    | 20.63         |
+| Human Resources             | 63    | 12    | 19.05         |
+| Research & Development      | 961   | 133   | 13.84         |
 
+**Business Insight:**  
+Sales department shows highest attrition (20.63%), requiring immediate attention to compensation, workload, and career progression policies. HR also shows elevated risk at 19.05%.
+    
 -- 3.2 Top 5 high-risk job roles (targeted intervention priority)
 SELECT jobrole, COUNT(*) AS total, SUM(attrition='Yes') AS exits,
     ROUND(SUM(attrition='Yes')*100.0/COUNT(*),2) AS exit_rate_pct
@@ -48,25 +134,62 @@ FROM employee_attrition
 GROUP BY jobrole
 ORDER BY exit_rate_pct DESC
 LIMIT 5;
+**Output:**
+| jobrole                    | total | exits | exit_rate_pct |
+|----------------------------|-------|-------|---------------|
+| Sales Representative       | 83    | 33    | 39.76         |
+| Laboratory Technician      | 259   | 62    | 23.94         |
+| Human Resources            | 52    | 12    | 23.08         |
+| Sales Executive            | 326   | 57    | 17.48         |
+| Research Scientist         | 292   | 47    | 16.10         |
 
+**Business Insight:**  
+Sales Representatives face extreme attrition (39.76% - nearly 2.5x the company average), followed by Laboratory Technicians (23.94%). These roles need urgent review of compensation, growth opportunities, and job satisfaction drivers.
+    
 -- 3.3 Attrition by marital status (risk and wellness targeting)
 SELECT maritalstatus, COUNT(*) AS total, SUM(attrition='Yes') AS exits,
     ROUND(SUM(attrition='Yes')*100.0/COUNT(*),2) AS exit_rate_pct
 FROM employee_attrition
 GROUP BY maritalstatus
 ORDER BY exit_rate_pct DESC;
+**Output:**
+| maritalstatus | total | exits | exit_rate_pct |
+|---------------|-------|-------|---------------|
+| Single        | 470   | 120   | 25.53         |
+| Married       | 673   | 84    | 12.48         |
+| Divorced      | 327   | 33    | 10.09         |
 
+**Business Insight:**  
+Single employees show significantly higher attrition (25.53% - more than double married employees), indicating younger, more mobile workforce with fewer long-term commitments.
+    
 -- 3.4 Attrition by overtime and gender (workload, D&I risk)
 SELECT overtime, COUNT(*) AS total, SUM(attrition='Yes') AS exits,
     ROUND(SUM(attrition='Yes')*100.0/COUNT(*),2) AS exit_rate_pct
 FROM employee_attrition
 GROUP BY overtime;
+**Output:**
+| overtime | total | exits | exit_rate_pct |
+|----------|-------|-------|---------------|
+| Yes      | 416   | 127   | 30.53         |
+| No       | 1054  | 110   | 10.44         |
 
+**Business Insight:**  
+Employees working overtime show nearly 3x higher attrition (30.53% vs 10.44%), suggesting workload stress, burnout, and poor work-life balance rather than engagement.
+    
 SELECT gender, COUNT(*) AS total, SUM(attrition='Yes') AS exits,
     ROUND(SUM(attrition='Yes')*100.0/COUNT(*),2) AS exit_rate_pct
 FROM employee_attrition
 GROUP BY gender;
+**Output:**
+| gender | total | exits | exit_rate_pct |
+|--------|-------|-------|---------------|
+| Male   | 882   | 150   | 17.01         |
+| Female | 588   | 87    | 14.80         |
 
+**Business Insight:**  
+Male employees show slightly higher attrition (17.01% vs 14.80%), but the gap is relatively small. Gender is not a primary attrition driver.
+
+    
 -- ============================== 4. KPI MEANS (NUMERIC, SATISFACTION, TENURE) ==============================
 
 -- 4.1 Means for age, income, tenure, satisfaction by attrition (data for dashboards)
