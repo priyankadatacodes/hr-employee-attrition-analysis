@@ -10,9 +10,12 @@ SELECT COUNT(*) AS totalemployees FROM employeeattrition;
 | --------------- |
 | 1470            |
 
-**Insight:The company has a substantial employee base; attrition trends and interventions are relevant company-wide.**
+**Insight:
+The company has a substantial employee base; attrition trends and interventions are relevant company-wide.**
 
-**Recommendations & Actions:Apply all retention strategies across the organization.**
+**Recommendations & Actions:
+Apply all retention strategies across the organization.**
+
 ---
 
 ## **1.2 Attrition & Retention Counts/Rates (Overall Business Impact)**
@@ -29,8 +32,12 @@ FROM employeeattrition;
 | ---------------- | ------------------ | ------------------ | ------------------ |
 | 416              | 1054               | 28.30              | 71.70              |
 
-**Insight:Attrition is relatively high (industry benchmark <20%), risking talent and continuity.**
-**Recommendations & Actions:Conduct root cause analysis and launch engagement surveys.** **Leadership must own ambitious attrition-reduction KPI goals.**
+**Insight:
+Attrition is relatively high (industry benchmark <20%), risking talent and continuity.**
+
+**Recommendations & Actions:
+Conduct root cause analysis and launch engagement surveys.** **Leadership must own ambitious attrition-reduction KPI goals.**
+
 ---
 
 ## **2. Segment Profile Distributions**
