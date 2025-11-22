@@ -46,8 +46,8 @@ A complete, end-to-end Data Analyst portfolio project tackling HR employee attri
    - 16.1% attrition, highest risk in R&D/Life Sciences, young/single/male employees  
    - Most leavers have lower tenure, pay, and stock options  
    - Suggestions: career growth programs, targeted retention for at-risk segments
-  
-   ---
+
+---
 
 **Usage Guide**
 - Clone this repo & install dependencies (`pip install -r requirements.txt`)
