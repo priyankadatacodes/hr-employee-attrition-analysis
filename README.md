@@ -26,7 +26,7 @@ A complete, end-to-end Data Analyst portfolio project tackling HR employee attri
 | Model         | Logistic Regression                     |
 
 ## Analysis Steps
-1. Data Cleaning & Validation: Remove duplicates, handle missing values, drop irrelevant columns
+1. Data Cleaning & Validation:Remove duplicates, handle missing values, drop irrelevant columns
 2. Exploratory Data Analysis (EDA): Visualize distributions, boxplots by attrition, correlation heatmaps, stacked bars for group risk
 3. SQL Analytics: Segment analysis, attrition rates by role/department/marital status/overtime, KPI extraction
 4. Feature Engineering & Modeling: Dummy encoding, train-test split, scaling, attrition prediction via Logistic Regression, outcome metrics
