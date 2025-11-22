@@ -3,6 +3,9 @@
 **Project Overview**  
 A complete, end-to-end Data Analyst portfolio project tackling HR employee attrition. This solution combines MySQL analytics, Python EDA, predictive modeling, and Power BI dashboards to identify causes, predict risk, and empower data-driven HR strategy.
 
+---
+
+
 **Objectives**
 - Diagnose main drivers of employee attrition
 - Segment workforce by retention risk and demographics
@@ -10,11 +13,16 @@ A complete, end-to-end Data Analyst portfolio project tackling HR employee attri
 - Deliver actionable recommendations for HR management
 - Showcase technical and business analytics skills for MNC hiring
 
+---
+
 
 **Dataset Info**
 - **Source:** [Kaggle HR Analytics Dataset](https://www.kaggle.com/datasets/pavansubhasht/ibm-hr-analytics-attrition-dataset)
 - **Records:** 1,470 employees, 35+ features
 - **Features:** Age, Department, JobRole, MonthlyIncome, JobSatisfaction, YearsAtCompany, Attrition, and more
+
+---
+
 
 **Tools & Technologies**
 | **Component**  | **Tools / Libraries**                   |
@@ -24,6 +32,9 @@ A complete, end-to-end Data Analyst portfolio project tackling HR employee attri
 | Dashboard      | Power BI                                |
 | Version Ctrl   | Git / GitHub                            |
 | Model          | Logistic Regression                     |
+
+---
+
 
 **Analysis Steps**
 1. **Data Cleaning & Validation:** Remove duplicates, handle missing values, drop irrelevant columns
