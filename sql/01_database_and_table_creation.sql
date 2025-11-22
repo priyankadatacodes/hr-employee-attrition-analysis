@@ -1,0 +1,37 @@
+CREATE DATABASE IF NOT EXISTS hr_analytics;
+USE hr_analytics;
+DROP TABLE IF EXISTS employee_attrition;
+CREATE TABLE IF NOT EXISTS employee_attrition (
+    age INT,
+    attrition VARCHAR(5),              
+    businesstravel VARCHAR(40),
+    dailyrate INT,
+    department VARCHAR(50),
+    distancefromhome INT,
+    education INT,
+    educationfield VARCHAR(40),
+    employeenumber INT,
+    environmentsatisfaction INT,
+    gender VARCHAR(6),
+    hourlyrate INT,
+    jobinvolvement INT,
+    joblevel INT,
+    jobrole VARCHAR(50),
+    jobsatisfaction INT,
+    maritalstatus VARCHAR(15),
+    monthlyincome INT,
+    monthlyrate INT,
+    numcompaniesworked INT,
+    overtime VARCHAR(6),
+    percentsalaryhike INT,
+    performancerating INT,
+    relationshipsatisfaction INT,
+    stockoptionlevel INT,
+    totalworkingyears INT,
+    trainingtimeslastyear INT,
+    worklifebalance INT,
+    yearsatcompany INT,
+    yearsincurrentrole INT,
+    yearssincelastpromotion INT,
+    yearswithcurrmanager INT
+);
