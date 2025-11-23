@@ -1,6 +1,6 @@
 # **HR Employee Attrition Full SQL Analytics Project**
 
-## ====================================================================**1. Executive Summary**==================================================================
+## ================================================**1. Executive Summary**==================================================================
 
 ## **1.1 Total Employee Headcount**
 
@@ -40,7 +40,7 @@ Conduct root cause analysis and launch engagement surveys.** **Leadership must o
 
 ---
 
-## ================================================================**2. Segment Profile Distributions**===========================================================
+## ==================================**2. Segment Profile Distributions**===========================================================
 
 ## **2.1 By Business Travel Type**
 
@@ -141,7 +141,7 @@ Single and married employees together make up the majority.**
 **Recommendations & Actions:
 Target initiatives toward single employees’ wellness and support.**
 
-## =================================================================**3. Attrition KPIs by Business Segment**=====================================================
+## ================================**3. Attrition KPIs by Business Segment**=====================================================
 ## **3.1 Attrition Rate by Department**
 
 SELECT department, COUNT(*) AS total,
@@ -228,7 +228,7 @@ Departed employees are younger, paid less, and less satisfied.**
 **Recommendations & Actions:
 Design programs for younger, lower-income, less-satisfied segments.**
 
-## **==============================================================5. Risk Bands & Segments**======================================================================
+## **=========================5. Risk Bands & Segments**======================================================================
    
 ## **5.1 Attrition for low-income band (<3000)**
 
@@ -384,7 +384,7 @@ Prioritize onboarding and career path development for new hires.
 Use exit feedback to close gaps for employees in their first years.**
 
 
-## ================================================= 6. MULTI-DIMENSIONAL ANALYSIS (MATRIX/PIVOT) =================================================================
+## ===================== 6. MULTI-DIMENSIONAL ANALYSIS (MATRIX/PIVOT) ===========================================
 
 ## **6.1 Business Travel x Department**
 
@@ -436,7 +436,7 @@ HR females and R&D males are at higher risk.**
 Targeted wellness and mentorship programs with a gender lens for high-risk groups.**
 
 
-## ======================================================= 7. EDA/VALIDATION & UNIQUE COUNTS =====================================================================
+## ================== 7. EDA/VALIDATION & UNIQUE COUNTS =============================================
 
 ## **7.1 Unique values for categorical columns (for feature engineering checks)**
 
@@ -494,7 +494,7 @@ Strengthen long-tenure rewards and recognition.
 Capture organizational knowledge from long-tenure staff.**
 
 
- ## ====================================================== 8. PERFORMANCE & SATISFACTION SEGMENTS =================================================================
+ ## ============================= 8. PERFORMANCE & SATISFACTION SEGMENTS ====================================
 
 ## **8.1 Performance rating by attrition**
 
