@@ -1,13 +1,13 @@
 # **Employee Attrition Analysis & Prediction**
 ![Pandas](https://img.shields.io/badge/Library-Pandas-150458)-![SQL](https://img.shields.io/badge/SQL-MySQL-orange)-![EDA](https://img.shields.io/badge/EDA-Insights-informational)-![Machine Learning](https://img.shields.io/badge/ML-Basic%20Models-success)-![Power BI](https://img.shields.io/badge/BI-Power%20BI-yellow)
 
-**Project Overview** ![Project Overview](https://img.shields.io/badge/Section-Project%20Overview-blue)
+## **Project Overview** 
 A complete, end-to-end Data Analyst portfolio project tackling HR employee attrition. This solution combines MySQL analytics, Python EDA, predictive modeling, and Power BI dashboards to identify causes, predict risk, and empower data-driven HR strategy.
 
 ---
 
 
-**Objectives**
+## **Objectives**
 - Diagnose main drivers of employee attrition
 - Segment workforce by retention risk and demographics
 - Predict future attrition using Machine Learning
@@ -17,7 +17,7 @@ A complete, end-to-end Data Analyst portfolio project tackling HR employee attri
 ---
 
 
-**Dataset Info**
+## **Dataset Info**
 - **Source:** [Kaggle HR Analytics Dataset](https://www.kaggle.com/datasets/pavansubhasht/ibm-hr-analytics-attrition-dataset)
 - **Records:** 1,470 employees, 35+ features
 - **Features:** Age, Department, JobRole, MonthlyIncome, JobSatisfaction, YearsAtCompany, Attrition, and more
@@ -25,7 +25,8 @@ A complete, end-to-end Data Analyst portfolio project tackling HR employee attri
 ---
 
 
-**Tools & Technologies**
+## **Tools & Technologies**
+
 | **Component**  | **Tools / Libraries**                   |
 |----------------|-----------------------------------------|
 | Database       | MySQL                                   |
@@ -37,7 +38,8 @@ A complete, end-to-end Data Analyst portfolio project tackling HR employee attri
 ---
 
 
-**Analysis Steps**
+## **Analysis Steps**
+
 1. **Data Cleaning & Validation:** Remove duplicates, handle missing values, drop irrelevant columns
 2. **Exploratory Data Analysis (EDA):** Visualize distributions, boxplots by attrition, correlation heatmaps, stacked bars for group risk
 3. **SQL Analytics:** Segment analysis, attrition rates by role/department/marital status/overtime, KPI extraction
@@ -50,7 +52,7 @@ A complete, end-to-end Data Analyst portfolio project tackling HR employee attri
 
 ---
 
-**Usage Guide**
+## **Usage Guide**
 - Clone this repo & install dependencies (`pip install -r requirements.txt`)
 - Run Python notebooks for EDA and ML
 - Execute SQL scripts for database analytics
@@ -58,7 +60,7 @@ A complete, end-to-end Data Analyst portfolio project tackling HR employee attri
 
 ---
 
-**Deliverables**
+## **Deliverables**
 - Clean, reproducible code & workflow
 - Dashboard-ready visuals and predictive model
 - Business insight summaries for HR management and decision-makers
