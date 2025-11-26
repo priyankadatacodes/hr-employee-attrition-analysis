@@ -1,0 +1,25 @@
+# Core Python scientific stack
+numpy
+pandas
+
+# Visualization libraries
+matplotlib
+seaborn
+plotly
+
+# Machine learning
+scikit-learn
+
+# Jupyter Notebook support
+jupyter
+notebook
+ipykernel
+
+# SQL & database connectors (optional)
+sqlalchemy
+pymysql
+
+# For exporting reports
+openpyxl
+xlrd
+
