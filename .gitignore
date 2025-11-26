@@ -1,0 +1,52 @@
+# Byte-compiled / Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Virtual environment
+env/
+venv/
+ENV/
+.venv/
+
+# Environment variables
+*.env
+
+# VS Code settings
+.vscode/
+
+# PyCharm settings
+.idea/
+
+# Logs
+*.log
+
+# macOS system files
+.DS_Store
+
+# Windows system files
+Thumbs.db
+
+# Data files (OPTIONAL: if you don’t want to upload dataset)
+*.csv
+*.xlsx
+*.xls
+*.json
+*.db
+
+# Large model files
+*.h5
+*.pkl
+*.sav
+
+# Python packaging
+build/
+dist/
+*.egg-info/
+
+# Temporary files
+*.tmp
+*.temp
