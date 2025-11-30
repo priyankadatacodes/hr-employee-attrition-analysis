@@ -2,7 +2,7 @@
 ![Pandas](https://img.shields.io/badge/Library-Pandas-150458)-![SQL](https://img.shields.io/badge/SQL-MySQL-orange)-![EDA](https://img.shields.io/badge/EDA-Insights-informational)-![Machine Learning](https://img.shields.io/badge/ML-Basic%20Models-success)-![Power BI](https://img.shields.io/badge/BI-Power%20BI-yellow)
 
 ## **Project Overview** 
-A complete, end-to-end Data Analyst portfolio project tackling HR employee attrition. This solution combines MySQL analytics, Python EDA, predictive modeling, and Power BI dashboards to identify causes, predict risk, and empower data-driven HR strategy.
+A complete, end-to-end project tackling HR employee attrition. This solution combines MySQL analytics, Python EDA, predictive modeling, and Power BI dashboards to identify causes, predict risk, and empower data-driven HR strategy.
 
 ---
 
