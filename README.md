@@ -1,6 +1,8 @@
 # **Employee Attrition Analysis & Prediction**
 ![Pandas](https://img.shields.io/badge/Library-Pandas-150458)-![SQL](https://img.shields.io/badge/SQL-MySQL-orange)-![EDA](https://img.shields.io/badge/EDA-Insights-informational)-![Machine Learning](https://img.shields.io/badge/ML-Basic%20Models-success)-![Power BI](https://img.shields.io/badge/BI-Power%20BI-yellow)
 
+<img src="https://raw.githubusercontent.com/priyankadatacodes/hr-employee-attrition-analysis/main/dashboard/employee_attrition_dashboard_image.png" width="100%">
+
 ---
 
 ## **1. Executive Summary**
