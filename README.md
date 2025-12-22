@@ -12,8 +12,7 @@ A complete, end-to-end project tackling HR employee attrition. This solution com
 - Segment workforce by retention risk and demographics
 - Predict future attrition using Machine Learning
 - Deliver actionable recommendations for HR management
-- Showcase technical and business analytics skills for MNC hiring
-
+  
 ---
 
 
@@ -37,7 +36,11 @@ A complete, end-to-end project tackling HR employee attrition. This solution com
 
 ---
 
+## **Dashboard**
 
+  <img src="https://raw.githubusercontent.com/priyankadatacodes/telco-customer-churn-analysis/main/dashboard/telecom_churn_analysis_dashboard.png" width="100%">
+
+---
 ## **Analysis Steps**
 
 1. **Data Cleaning & Validation:** Remove duplicates, handle missing values, drop irrelevant columns
@@ -64,7 +67,6 @@ A complete, end-to-end project tackling HR employee attrition. This solution com
 - Clean, reproducible code & workflow
 - Dashboard-ready visuals and predictive model
 - Business insight summaries for HR management and decision-makers
-- Portfolio-ready presentation for interviews and recruiter review
 
 ---
 Project by [PRIYANKA_LAKRA] — aspiring Data Analyst skilled in SQL, Python, business intelligence, and machine learning.
