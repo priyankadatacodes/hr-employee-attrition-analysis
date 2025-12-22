@@ -38,7 +38,7 @@ A complete, end-to-end project tackling HR employee attrition. This solution com
 
 ## **Dashboard**
 
-  <img src="https://raw.githubusercontent.com/priyankadatacodes/telco-customer-churn-analysis/main/dashboard/telecom_churn_analysis_dashboard.png" width="100%">
+  <img src="https://raw.githubusercontent.com/priyankadatacodes/hr-employee-attrition-analysis/blob/main/dashboard/employee_attriton_dashboard_image.png" width="100%">
 
 ---
 ## **Analysis Steps**
