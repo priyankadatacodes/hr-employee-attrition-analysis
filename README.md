@@ -113,7 +113,7 @@ This step ensures **metric consistency and governance**, a key requirement in en
 
 ---
 
-## **9. Key Insights (Metrics-Based)**
+## **9. Key Insights**
 1. Total Employees analyzed: 1,470  
 2. Attrited Employees: 237  
 3. Overall Attrition Rate: 16.12%  
