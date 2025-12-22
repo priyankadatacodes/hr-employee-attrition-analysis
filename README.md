@@ -38,7 +38,7 @@ A complete, end-to-end project tackling HR employee attrition. This solution com
 
 ## **Dashboard**
 
-<img src="https://raw.githubusercontent.com/priyankadatacodes/dashboard/employee_attrition_dashboard_image.png" width="100%">
+<img src="https://raw.githubusercontent.com/priyankadatacodes/hr-employee-attrition-analysis/main/dashboard/employee_attrition_dashboard_image.png" width="100%">
 
 ---
 ## **Analysis Steps**
