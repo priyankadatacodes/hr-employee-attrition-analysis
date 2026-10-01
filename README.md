@@ -1,231 +1,341 @@
-# **Employee Attrition Analysis & Prediction**
+# Employee Attrition Analysis & Prediction
 
-![Pandas](https://img.shields.io/badge/Library-Pandas-150458)
-![SQL](https://img.shields.io/badge/SQL-MySQL-orange)
+![Python](https://img.shields.io/badge/Python-Pandas-150458?logo=python)
+![SQL](https://img.shields.io/badge/SQL-MySQL-orange?logo=mysql)
 ![EDA](https://img.shields.io/badge/EDA-Insights-informational)
-![Machine Learning](https://img.shields.io/badge/ML-Basic%20Models-success)
-![Power BI](https://img.shields.io/badge/BI-Power%20BI-yellow)
+![Machine Learning](https://img.shields.io/badge/ML-Logistic%20Regression-success)
+![Power BI](https://img.shields.io/badge/Power%20BI-Dashboard-F2C811?logo=powerbi\&logoColor=black)
 
-<img src="https://raw.githubusercontent.com/priyankadatacodes/hr-employee-attrition-analysis/main/dashboard/employee_attrition.png" width="100%">
+## Executive Summary
 
----
+End-to-end **HR analytics project** focused on employee attrition, workforce patterns, attrition drivers, and high-risk employee segments.
 
-## **Executive Summary**
+The project combines **Python, MySQL, Exploratory Data Analysis, Logistic Regression, and Power BI** to move from data validation and analysis to predictive insight and management reporting.
 
-Employee attrition directly impacts **organizational cost, productivity, and workforce stability**.  
-This project delivers an **end-to-end Employee Attrition Analysis**, designed to support **data-driven HR and leadership decisions**.
+### Business Question
 
-The analysis follows a structured analytics workflow—starting with **data quality validation**, moving through **exploratory analysis and KPI verification**, and ending with an **interactive Power BI dashboard** for management reporting.
-
-The objective is not just to report attrition numbers, but to **identify high-risk employee segments and recommend practical retention strategies**.
+> **Why are employees leaving, which employee segments face higher attrition risk, and where should retention efforts be focused?**
 
 ---
 
-## **Why I Built This Project**
+## 1. Business Problem
 
-Employee turnover is a common challenge across organizations, especially in large enterprises where even small attrition rates can lead to **significant hiring and training costs**.
+Employee attrition affects workforce stability, productivity, recruitment costs, and organizational knowledge.
 
-I built this project to:
-- Understand **why employees leave**
-- Identify **patterns behind attrition**
-- Practice analyzing HR data from a **business and decision-making perspective**
+The objective of this project is to analyze employee-level HR data to:
 
-This project reflects a real-world scenario where a data analyst supports **HR and leadership teams**, not just dashboards.
-
----
-
-## **Business Context**
-
-Organizations invest heavily in:
-- Hiring and onboarding
-- Employee training
-- Performance management
-
-High attrition leads to:
-- Increased recruitment costs
-- Productivity loss
-- Knowledge gaps within teams
-
-The business needs clarity on:
-- Which employees are most likely to leave
-- What factors drive attrition
-- Where retention efforts should be focused
+* Measure employee attrition
+* Identify key attrition drivers
+* Analyze attrition across departments, roles, income, tenure, and work conditions
+* Identify high-risk employee segments
+* Validate KPIs using SQL
+* Build an interactive Power BI dashboard
+* Support data-driven retention planning
 
 ---
 
-## **Problem Statement**
+## 2. Dataset
 
-Analyze employee-level HR data to measure **attrition rate**, identify **key drivers of employee turnover**, and highlight **high-risk employee segments**, enabling proactive and data-driven retention strategies.
+**Dataset:** IBM HR Analytics Employee Attrition Dataset
+**Domain:** Human Resources Analytics
+**Granularity:** Individual employee-level records
+**Target Variable:** `Attrition` — Yes / No
 
----
-
-## **Hypotheses**
-
-Before analysis, the following hypotheses were framed:
-
-- **H1:** Attrition is higher among early-career and junior-level employees  
-- **H2:** Lower compensation is associated with higher attrition  
-- **H3:** Overtime and frequent business travel increase attrition risk  
-- **H4:** Attrition decreases with higher job level and longer tenure  
-
-These hypotheses guided the analysis instead of exploring the data randomly.
+The analysis uses employee-level attributes to investigate relationships between attrition and factors such as compensation, job level, tenure, overtime, travel, age, and department.
 
 ---
 
-## **Dataset Overview**
+## 3. Analytical Hypotheses
 
-- **Dataset:** IBM HR Analytics Employee Attrition Dataset  
-- **Domain:** Human Resources Analytics  
-- **Granularity:** Individual employee-level records  
-- **Target Variable:** **Attrition (Yes / No)**  
+The analysis was structured around four initial hypotheses:
 
----
+* **H1:** Attrition is higher among early-career and junior-level employees
+* **H2:** Lower compensation is associated with higher attrition
+* **H3:** Overtime and frequent business travel increase attrition risk
+* **H4:** Attrition decreases with higher job level and longer tenure
 
-## **Tools Used**
-
-- **Python**
-  - Data cleaning and validation  
-  - Exploratory data analysis  
-  - Basic predictive modeling  
-
-- **SQL (MySQL)**
-  - KPI validation  
-  - Cross-verification of attrition metrics  
-
-- **Power BI**
-  - DAX measures  
-  - Interactive executive dashboards  
-
-- **Excel**
-  - Preliminary data review  
+These hypotheses guided the exploratory and statistical analysis.
 
 ---
 
-## **Data Preparation**
+## 4. Tech Stack
 
-Using Python, I:
-- Performed schema and data type validation  
-- Handled missing values based on data type  
-- Checked and resolved duplicate records  
-- Ensured data integrity before KPI calculation  
-
-Cleaned and validated data was then prepared for SQL and Power BI analysis.
-
----
-
-## **Analysis Approach**
-
-The analysis followed a structured, end-to-end workflow:
-
-1. **Data quality checks and cleaning** in Python  
-2. **Exploratory Data Analysis (EDA)** to identify patterns  
-3. **Logistic Regression modeling** for attrition drivers  
-4. **SQL-based KPI validation** to ensure metric consistency  
-5. **Power BI dashboard development** for leadership reporting  
+| Tool                    | Purpose                                        |
+| ----------------------- | ---------------------------------------------- |
+| **Python / Pandas**     | Data cleaning, validation, EDA, modeling       |
+| **MySQL / SQL**         | KPI validation and metric cross-verification   |
+| **Logistic Regression** | Attrition-driver analysis                      |
+| **Power BI**            | Interactive dashboard and management reporting |
+| **Excel**               | Preliminary data review                        |
 
 ---
 
-## **Attrition Modeling (Logistic Regression)**
+## 5. Analytics Workflow
 
-- Prepared features for binary classification  
-- Trained a **Logistic Regression** model  
-- Identified statistically significant attrition drivers  
-- Interpreted results from a **business perspective**  
+```text
+Raw HR Data
+     ↓
+Data Validation & Cleaning
+     ↓
+Exploratory Data Analysis
+     ↓
+KPI Calculation
+     ↓
+Logistic Regression
+     ↓
+SQL KPI Validation
+     ↓
+Power BI Dashboard
+     ↓
+Business Insights & Retention Actions
+```
 
-> *Note: Modeling was used for analytical insight, not production deployment.*
-
----
-
-## **Core KPIs Tracked**
-
-1. **Total Employees**  
-2. **Active Employees**  
-3. **Attrited Employees**  
-4. **Attrition Rate (%)**  
-5. **Average Monthly Income**  
-6. **Average Employee Tenure (Years)**  
-
----
-
-## **Dashboard Overview**
-
-<img src="https://raw.githubusercontent.com/priyankadatacodes/hr-employee-attrition-analysis/main/dashboard/employee_attrition_dashboard_image.png" width="100%">
-
-The dashboard provides:
-- Attrition overview
-- Department and role-level analysis
-- Compensation and tenure insights
-- Work condition impact (overtime, travel)
+The project follows an end-to-end workflow covering data preparation, exploratory analysis, predictive modeling, SQL validation, and dashboard reporting.
 
 ---
 
-## **Key Insights**
+## 6. Data Preparation
 
-- **Total Employees:** **1,470**  
-- **Attrited Employees:** **237**  
-- **Overall Attrition Rate:** **16.12%**  
-- Higher attrition among **entry-level and junior employees**  
-- **Lower income bands** show disproportionately higher attrition  
-- Employees **below 35 years** have higher turnover risk  
-- **Sales** and **R&D** departments contribute the highest attrition  
-- Frequent **business travel** is linked with higher attrition  
-- **Overtime + long commute** increases attrition likelihood  
-- Attrition decreases with **higher job level, income, and tenure**
+Python was used for:
 
----
+* Schema and data-type validation
+* Missing-value checks
+* Duplicate checks
+* Data-integrity validation
+* Data preparation for SQL and Power BI
 
-## **Business Impact**
-
-- Enables early identification of **high-risk employee segments**  
-- Supports **data-driven retention planning**  
-- Helps reduce hiring and training costs  
-- Improves workforce stability and continuity  
+The cleaned dataset was then used for downstream analysis and reporting.
 
 ---
 
-## **Recommendations**
+## 7. Exploratory Data Analysis
 
-### **Short-Term**
-- Strengthen onboarding and mentorship for early-career employees  
-- Review compensation for low-income, high-attrition roles  
-- Monitor overtime and workload distribution  
+EDA was used to analyze attrition patterns across:
 
-### **Long-Term**
-- Optimize business travel policies  
-- Launch targeted engagement programs for Sales and R&D teams  
-- Track employee satisfaction as an early attrition signal  
-- Maintain regular attrition monitoring dashboards  
+* Age
+* Income
+* Job level
+* Job role
+* Department
+* Tenure
+* Overtime
+* Business travel
+* Work conditions
 
----
-
-## **Final Takeaway**
-
-Employee attrition is driven by a combination of **career stage, compensation, workload, and work conditions**.  
-By identifying high-risk segments early, organizations can take **proactive retention actions** instead of reacting after employees leave.
-
-This project demonstrates how **data analytics can directly support HR strategy and leadership decisions**.
+The analysis focused on identifying employee segments associated with higher observed attrition.
 
 ---
 
-## **Author**
+## 8. Attrition Modeling
 
-**Priyanka Lakra**  
-**Data Analyst | Python | SQL | Power BI**  
+### Logistic Regression
+
+A **Logistic Regression** model was developed for binary attrition analysis.
+
+The modeling workflow included:
+
+* Preparing features for binary classification
+* Training the Logistic Regression model
+* Identifying statistically significant attrition drivers
+* Interpreting model results from a business perspective
+
+The model was used for **analytical insight rather than production deployment**.
 
 ---
 
-## **About Me**
+## 9. SQL Analysis & KPI Validation
 
-I am an aspiring **Data Analyst** with hands-on experience in **Python, SQL, and Power BI**, focused on building **business-driven, end-to-end analytics projects**.
+MySQL was used to independently validate key attrition metrics and cross-check analytical results.
 
-My approach emphasizes:
-- **Data quality and validation**
-- **KPI governance**
-- **Clear business communication**
+### Core KPIs
 
-Through this project, I have demonstrated the ability to:
-- Follow an **industry-standard analytics workflow**
-- Perform **EDA and KPI validation**
-- Use **SQL for metric cross-verification**
-- Translate analysis into **actionable business insights**
-- Design dashboards that support **management decision-making**
+1. Total Employees
+2. Active Employees
+3. Attrited Employees
+4. Attrition Rate
+5. Average Monthly Income
+6. Average Employee Tenure
+
+This SQL layer provides an additional validation step between the analytical dataset and dashboard reporting.
+
+---
+
+## 10. Power BI Dashboard
+
+The final reporting layer is an interactive **Power BI employee attrition dashboard**.
+
+### Dashboard Coverage
+
+* Overall attrition overview
+* Department-level analysis
+* Role-level analysis
+* Compensation analysis
+* Tenure analysis
+* Overtime impact
+* Business travel analysis
+
+The dashboard is designed for management-level monitoring of employee attrition patterns and workforce risk.
+
+### Dashboard Preview
+
+![Employee Attrition Dashboard](https://raw.githubusercontent.com/priyankadatacodes/hr-employee-attrition-analysis/main/dashboard/employee_attrition_dashboard.png)
+
+---
+
+## 11. Key Findings
+
+### Workforce Overview
+
+| Metric                 |     Result |
+| ---------------------- | ---------: |
+| Total Employees        |  **1,470** |
+| Attrited Employees     |    **237** |
+| Overall Attrition Rate | **16.12%** |
+
+### Attrition Patterns
+
+* Higher attrition among **entry-level and junior employees**
+* **Lower income bands** show disproportionately higher attrition
+* Employees **below 35 years** show higher observed turnover
+* **Sales** and **R&D** contribute the highest attrition
+* Frequent **business travel** is associated with higher attrition
+* **Overtime combined with long commute** is associated with higher attrition
+* Attrition decreases with higher **job level, income, and tenure**
+
+---
+
+## 12. Business Impact
+
+The analysis provides HR and leadership teams with:
+
+* Identification of high-risk employee segments
+* Data-driven retention planning
+* Better understanding of attrition drivers
+* Support for workforce stability initiatives
+* A repeatable framework for monitoring employee attrition
+
+---
+
+## 13. Retention Recommendations
+
+### Short-Term
+
+* Strengthen onboarding and mentorship for early-career employees
+* Review compensation for low-income, high-attrition roles
+* Monitor overtime and workload distribution
+
+### Long-Term
+
+* Optimize business travel policies
+* Develop targeted engagement programs for Sales and R&D
+* Track employee satisfaction as an early attrition signal
+* Maintain regular attrition monitoring dashboards
+
+---
+
+## 14. Project Structure
+
+```text
+hr-employee-attrition-analysis/
+│
+├── dashboard/
+│   └── employee_attrition.png
+│
+├── data/
+│
+├── notebook/
+│   ├── 01_*.ipynb
+│   ├── 02_*.ipynb
+│   └── 03_modeling_logistic_regression.ipynb
+│
+├── outputs/
+│
+├── sql/
+│
+├── requirements.txt
+├── .gitignore
+└── README.md
+```
+
+The repository contains dedicated folders for the dashboard, data, notebooks, outputs, and SQL analysis.
+
+---
+
+## 15. Skills Demonstrated
+
+### Data Analytics
+
+* Exploratory Data Analysis
+* HR Analytics
+* Attrition Analysis
+* KPI Development
+* Business Insight Generation
+
+### Python
+
+* Pandas
+* Data Cleaning
+* Data Validation
+* Exploratory Analysis
+* Logistic Regression
+
+### SQL
+
+* MySQL
+* KPI Validation
+* Metric Cross-Verification
+* Analytical Queries
+
+### Business Intelligence
+
+* Power BI
+* DAX
+* Interactive Dashboards
+* Management Reporting
+
+### Business Analysis
+
+* Hypothesis-driven analysis
+* Attrition-driver analysis
+* Employee risk segmentation
+* Retention recommendations
+
+---
+
+## 16. Limitations
+
+* The analysis is based on the **IBM HR Analytics Employee Attrition Dataset**.
+* Logistic Regression is used for analytical insight rather than production deployment.
+* Observed relationships should be interpreted as associations within the dataset rather than proof of causation.
+* Retention recommendations are based on the patterns identified in the available employee-level data.
+
+---
+
+## 17. Future Improvements
+
+Potential extensions include:
+
+* Advanced machine-learning models
+* Model performance comparison
+* Employee-level risk scoring
+* Explainable ML using feature importance / SHAP
+* Automated HR analytics pipelines
+* More detailed employee engagement analysis
+* Automated Power BI reporting
+
+---
+
+## 18. Author
+
+**Priyanka Lakra**
+Data Analyst | Python · SQL · Power BI
+
+**Portfolio:** [bloomindata.in](https://www.bloomindata.in/)
+
+**GitHub:** [priyankadatacodes](https://github.com/priyankadatacodes)
+
+---
+
+## License
+
+This project is available under the repository's existing license.
